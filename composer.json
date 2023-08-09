@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "symfony/framework-bundle": "^6.0",
-        "symsensor/actuator-bundle": "dev-main",
+        "symsensor/actuator-bundle": "^1.0",
         "doctrine/doctrine-bundle": "^2.0"
     },
     "require-dev": {
