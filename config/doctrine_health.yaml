@@ -1,5 +1,5 @@
 services:
-  Akondas\ActuatorBundle\Service\Health\Indicator\Doctrine:
+  SymSensor\ActuatorDoctrineBundle\Service\Health\Indicator\Doctrine:
     tags: ['sym_sensor_actuator.health_indicator']
     arguments:
       - [ ]

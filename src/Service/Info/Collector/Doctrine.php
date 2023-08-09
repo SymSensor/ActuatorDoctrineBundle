@@ -65,9 +65,9 @@ class Doctrine implements Collector
             }
 
             $connectionInfo[$name] = [
-            'type' => $type,
-            'database' => $database,
-            'driver' => \get_class($connection->getDriver()),
+                'type' => $type,
+                'database' => $database,
+                'driver' => \get_class($connection->getDriver()),
             ];
         }
 

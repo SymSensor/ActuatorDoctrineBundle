@@ -1,3 +1,5 @@
 services:
-  SymSensor\ActuatorBundle\Service\Info\Collector\Doctrine: 
+  SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\Doctrine: 
     tags: ['sym_sensor_actuator.info_collector']
+    arguments:
+      - [ ]
