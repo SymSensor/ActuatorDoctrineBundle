@@ -3,11 +3,10 @@
     "description": "Extension to monitor the doctrine connection for the actuator bundle",
     "keywords": [ "actuator" ],
     "type": "symfony-bundle",
-    "minimum-stability": "dev",
     "license": "MIT",
     "require": {
         "symfony/framework-bundle": "^6.0",
-        "symsensor/actuator-bundle": "*",
+        "symsensor/actuator-bundle": "dev-main",
         "doctrine/doctrine-bundle": "^2.0"
     },
     "require-dev": {

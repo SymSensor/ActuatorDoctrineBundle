@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace SymSensor\ActuatorDoctrineBundle;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use SymSensor\ActuatorDoctrineBundle\DependencyInjection\SymSensorActuatorDoctrineExtension;
 
