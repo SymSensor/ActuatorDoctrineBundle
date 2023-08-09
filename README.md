@@ -2,6 +2,8 @@
 
 <img src="https://github.com/SymSensor/ActuatorDoctrineBundle/blob/main/docs/logo.png?raw=true" align="right" width="250"/>
 
+ActuatorDoctrineBundle extends [ActuatorBundle](https://github.com/SymSensor/ActuatorBundle) by providing health indicator and information collector for doctrine.
+
 ## Installation
 
 Make sure Composer is installed globally, as explained in the
@@ -40,3 +42,34 @@ return [
     SymSensor\ActuatorBundle\SymSensorActuatorDoctrineBundle::class => ['all' => true],
 ];
 ```
+
+
+## Configuration
+
+The Bundle can be configured with a configuration file named `config/packages/sym_sensor_actuator.yaml`. Following snippet shows the default value for all configurations:
+
+```yaml
+sym_sensor_actuator_doctrine:
+  connections:
+    default:
+      service: doctrine.dbal.default_connection
+      check_sql: SELECT 1
+```
+
+Following table outlines the configuration:
+
+| key                                                       | default                    | description                                                                                                                                                                                                                                             |
+| --------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sym_sensor_actuator_doctrine.connections                  | Array                      | Contains a list of names, where each represents an connection to e database. The name itself can be chosen at will                                                                                                                                      |
+| sym_sensor_actuator_doctrine.connections.`name`.enabled   | true                       | If the connection associated with this name should monitored                                                                                                                                                                                            |
+| sym_sensor_actuator_doctrine.connections.`name`.service   | 'Doctrine\DBAL\Connection' | The service name inside the dependency injection container. You can lookup your connection name with `bin/console debug:container`                                                                                                                      |
+| sym_sensor_actuator_doctrine.connections.`name`.check_sql | 'Select 1'                 | The SQL which will be executed to determine if the database is up. The response will be ignored, it only matters if the sql can be executed without error. If you set this to `~` it will only check if a connection to the database can be established |
+
+
+## License
+
+ActuatorBundle is released under the MIT Licence. See the bundled LICENSE file for details.
+
+## Author
+
+Originally developed by [Arkadiusz Kondas](https://twitter.com/ArkadiuszKondas)
