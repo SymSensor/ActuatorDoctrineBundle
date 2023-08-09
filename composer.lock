@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94378c75f7d4fafbc48ff0b1034f38ca",
+    "content-hash": "714210cad18154fa77b1d39a61ddf6cd",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -3004,16 +3004,16 @@
         },
         {
             "name": "symsensor/actuator-bundle",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SymSensor/ActuatorBundle.git",
-                "reference": "61bb161622ca0e0ceb943901b0d24b3d930c3a5f"
+                "reference": "f98f2a2a2bef30cc5b8a65369d4e6b9848819030"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SymSensor/ActuatorBundle/zipball/61bb161622ca0e0ceb943901b0d24b3d930c3a5f",
-                "reference": "61bb161622ca0e0ceb943901b0d24b3d930c3a5f",
+                "url": "https://api.github.com/repos/SymSensor/ActuatorBundle/zipball/f98f2a2a2bef30cc5b8a65369d4e6b9848819030",
+                "reference": "f98f2a2a2bef30cc5b8a65369d4e6b9848819030",
                 "shasum": ""
             },
             "require": {
@@ -3029,7 +3029,6 @@
                 "symfony/browser-kit": "^6.0",
                 "symfony/yaml": "^6.0"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -3046,9 +3045,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SymSensor/ActuatorBundle/issues",
-                "source": "https://github.com/SymSensor/ActuatorBundle/tree/main"
+                "source": "https://github.com/SymSensor/ActuatorBundle/tree/v1.0.0"
             },
-            "time": "2023-08-09T06:17:51+00:00"
+            "time": "2023-08-09T09:27:52+00:00"
         }
     ],
     "packages-dev": [
@@ -5910,9 +5909,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "symsensor/actuator-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
