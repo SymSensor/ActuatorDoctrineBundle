@@ -59,17 +59,26 @@ final class SymSensorActuatorDoctrineExtension extends Extension
                 $infoDefinition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\Doctrine::class);
                 $infoDefinition->replaceArgument(0, $infoArgument);
             }
+        }
 
-            if ($container->willBeAvailable('doctrine/doctrine-migrations-bundle', DependencyFactory::class, [])) {
-                $reference = new Reference('doctrine.migrations.dependency_factory');
+        $migrationsConfig = $config['migrations'];
+        \assert(\is_array($migrationsConfig));
+        if (
+            $container->willBeAvailable('doctrine/doctrine-migrations-bundle', DependencyFactory::class, [])
+            && $this->isConfigEnabled($container, $migrationsConfig)
+        ) {
+            $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
+            $loader->load('services_migrations.yaml');
 
-                $loader->load('services_migrations.yaml');
-                $definition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Health\Indicator\DoctrineMigrations::class);
-                $definition->replaceArgument(0, $reference);
+            $reference = new Reference('doctrine.migrations.dependency_factory');
 
-                $infoDefinition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\DoctrineMigrations::class);
-                $infoDefinition->replaceArgument(0, $reference);
-            }
+            $definition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Health\Indicator\DoctrineMigrations::class);
+            $definition->setArgument('$dependencyFactory', $reference);
+            $definition->setArgument('$checkUnavailable', $migrationsConfig['check_unavailable'] ?? true);
+            $definition->setArgument('$reportUnavailableAsDown', $migrationsConfig['report_unavailable_as_down'] ?? false);
+
+            $infoDefinition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\DoctrineMigrations::class);
+            $infoDefinition->replaceArgument(0, $reference);
         }
     }
 }

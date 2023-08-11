@@ -37,6 +37,13 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('migrations')
+                    ->canBeDisabled()
+                    ->children()
+                        ->scalarNode('check_unavailable')->defaultTrue()->end()
+                        ->scalarNode('report_unavailable_as_down')->defaultFalse()->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

@@ -29,8 +29,11 @@ class DoctrineMigrations implements HealthIndicator
 
     private MigrationStatusCalculator $statusCalculator;
 
-    public function __construct(private readonly DependencyFactory $dependencyFactory)
-    {
+    public function __construct(
+        private readonly DependencyFactory $dependencyFactory,
+        private readonly bool $checkUnavailable = true,
+        private readonly bool $reportUnavailableAsDown = false
+    ) {
         $this->metadataStorage = $this->dependencyFactory->getMetadataStorage();
         $this->migrationPlanCalculator = $this->dependencyFactory->getMigrationPlanCalculator();
         $this->statusCalculator = $this->dependencyFactory->getMigrationStatusCalculator();
@@ -60,7 +63,11 @@ class DoctrineMigrations implements HealthIndicator
             return Health::down('Not all migrations were executed', $dataGroup);
         }
 
-        if (0 !== \count($executedUnavailableMigrations)) {
+        if ($this->checkUnavailable && 0 !== \count($executedUnavailableMigrations)) {
+            if ($this->reportUnavailableAsDown) {
+                return Health::down('Not all migrations, that were executed, are available anymore', $dataGroup);
+            }
+
             return Health::unknown('Not all migrations, that were executed, are available anymore', $dataGroup);
         }
 
