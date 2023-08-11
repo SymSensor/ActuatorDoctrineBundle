@@ -54,16 +54,24 @@ sym_sensor_actuator_doctrine:
     default:
       service: doctrine.dbal.default_connection
       check_sql: SELECT 1
+  
+  migrations:
+    enabled: true
+    check_unavailable: true
+    report_unavailable_as_down: false
 ```
 
 Following table outlines the configuration:
 
-| key                                                       | default                    | description                                                                                                                                                                                                                                             |
-| --------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sym_sensor_actuator_doctrine.connections                  | Array                      | Contains a list of names, where each represents an connection to e database. The name itself can be chosen at will                                                                                                                                      |
-| sym_sensor_actuator_doctrine.connections.`name`.enabled   | true                       | If the connection associated with this name should monitored                                                                                                                                                                                            |
-| sym_sensor_actuator_doctrine.connections.`name`.service   | 'Doctrine\DBAL\Connection' | The service name inside the dependency injection container. You can lookup your connection name with `bin/console debug:container`                                                                                                                      |
-| sym_sensor_actuator_doctrine.connections.`name`.check_sql | 'Select 1'                 | The SQL which will be executed to determine if the database is up. The response will be ignored, it only matters if the sql can be executed without error. If you set this to `~` it will only check if a connection to the database can be established |
+| key                                                                | default                    | description                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sym_sensor_actuator_doctrine.connections                           | Array                      | Contains a list of names, where each represents an connection to e database. The name itself can be chosen at will                                                                                                                                      |
+| sym_sensor_actuator_doctrine.connections.`name`.enabled            | true                       | If the connection associated with this name should monitored                                                                                                                                                                                            |
+| sym_sensor_actuator_doctrine.connections.`name`.service            | 'Doctrine\DBAL\Connection' | The service name inside the dependency injection container. You can lookup your connection name with `bin/console debug:container`                                                                                                                      |
+| sym_sensor_actuator_doctrine.connections.`name`.check_sql          | 'Select 1'                 | The SQL which will be executed to determine if the database is up. The response will be ignored, it only matters if the sql can be executed without error. If you set this to `~` it will only check if a connection to the database can be established |
+| sym_sensor_actuator_doctrine.migrations.enabled                    | true                       | If the migration check should be enabled in health / info endpoint                                                                                                                                                                                      |
+| sym_sensor_actuator_doctrine.migrations.check_unavailable          | true                       | If the health endpoint should check the unavailable migrations                                                                                                                                                                                          |
+| sym_sensor_actuator_doctrine.migrations.report_unavailable_as_down | false                      | If unavailable migrations should count as unknown or down                                                                                                                                                                                               |
 
 
 ## License

@@ -6,10 +6,11 @@
     "license": "MIT",
     "require": {
         "symfony/framework-bundle": "^6.0",
-        "symsensor/actuator-bundle": "^1.0",
-        "doctrine/doctrine-bundle": "^2.0"
+        "symsensor/actuator-bundle": "^1.0.1"
     },
     "require-dev": {
+        "doctrine/doctrine-bundle": "^2.0",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
         "friendsofphp/php-cs-fixer": "^3.22",
         "phpstan/phpstan": "^1.10",
         "phpstan/phpstan-symfony": "^1.1",
