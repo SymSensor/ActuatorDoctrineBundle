@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace SymSensor\ActuatorDoctrineBundle\DependencyInjection;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\Migrations\DependencyFactory;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -57,6 +58,17 @@ final class SymSensorActuatorDoctrineExtension extends Extension
 
                 $infoDefinition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\Doctrine::class);
                 $infoDefinition->replaceArgument(0, $infoArgument);
+            }
+
+            if ($container->willBeAvailable('doctrine/doctrine-migrations-bundle', DependencyFactory::class, [])) {
+                $reference = new Reference('doctrine.migrations.dependency_factory');
+
+                $loader->load('services_migrations.yaml');
+                $definition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Health\Indicator\DoctrineMigrations::class);
+                $definition->replaceArgument(0, $reference);
+
+                $infoDefinition = $container->getDefinition(\SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\DoctrineMigrations::class);
+                $infoDefinition->replaceArgument(0, $reference);
             }
         }
     }

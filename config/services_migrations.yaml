@@ -1,0 +1,10 @@
+services:
+  SymSensor\ActuatorDoctrineBundle\Service\Health\Indicator\DoctrineMigrations:
+    tags: ['sym_sensor_actuator.health_indicator']
+    arguments:
+      - [ ]
+
+  SymSensor\ActuatorDoctrineBundle\Service\Info\Collector\DoctrineMigrations:
+    tags: ['sym_sensor_actuator.info_collector']
+    arguments:
+      - [ ]
