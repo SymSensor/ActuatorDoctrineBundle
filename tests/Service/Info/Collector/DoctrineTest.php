@@ -83,12 +83,12 @@ class DoctrineTest extends TestCase
         self::assertIsArray($array['default']);
 
         self::assertArrayHasKey('type', $array['default']);
-        self::assertStringStartsWith('Mock_AbstractPlatform_', $array['default']['type']);
+        self::assertEquals(get_class($databasePlatform), $array['default']['type']);
 
         self::assertArrayHasKey('database', $array['default']);
         self::assertNull($array['default']['database']);
 
         self::assertArrayHasKey('driver', $array['default']);
-        self::assertStringStartsWith('Mock_Driver_', $array['default']['driver']);
+        self::assertEquals(get_class($driver), $array['default']['driver']);
     }
 }
