@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8baf9b0159b2a8c2ed57f3feb7f14da",
+    "content-hash": "d05522ef27456cf4bc848dab7d4845f7",
     "packages": [
         {
             "name": "psr/cache",
@@ -1954,20 +1954,20 @@
         },
         {
             "name": "symsensor/actuator-bundle",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SymSensor/ActuatorBundle.git",
-                "reference": "5a1e7068bd0d46ec771a09b87a2f3b847975473c"
+                "reference": "aaaa4cdbd58e6d5149a03f0beb0c09b3f1a71661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SymSensor/ActuatorBundle/zipball/5a1e7068bd0d46ec771a09b87a2f3b847975473c",
-                "reference": "5a1e7068bd0d46ec771a09b87a2f3b847975473c",
+                "url": "https://api.github.com/repos/SymSensor/ActuatorBundle/zipball/aaaa4cdbd58e6d5149a03f0beb0c09b3f1a71661",
+                "reference": "aaaa4cdbd58e6d5149a03f0beb0c09b3f1a71661",
                 "shasum": ""
             },
             "require": {
-                "symfony/framework-bundle": "^6.0"
+                "symfony/framework-bundle": "^6.0 || ^7.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.22",
@@ -1995,9 +1995,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SymSensor/ActuatorBundle/issues",
-                "source": "https://github.com/SymSensor/ActuatorBundle/tree/v1.0.1"
+                "source": "https://github.com/SymSensor/ActuatorBundle/tree/v1.1.0"
             },
-            "time": "2023-08-11T12:55:53+00:00"
+            "time": "2023-12-06T14:09:45+00:00"
         }
     ],
     "packages-dev": [
