@@ -52,7 +52,7 @@ class Doctrine implements Collector
                 if (null === $platform) { // @phpstan-ignore-line
                     $type = 'Unknown';
                 } else {
-                    $type = \trim((new \ReflectionClass($connection->getDatabasePlatform()))->getShortName(), 'Platform');
+                    $type = \get_class($connection->getDatabasePlatform());
                 }
             } catch (Exception $e) {
                 $type = 'Unknown';
