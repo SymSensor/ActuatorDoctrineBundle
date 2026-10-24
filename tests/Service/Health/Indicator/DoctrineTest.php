@@ -60,7 +60,7 @@ class DoctrineTest extends TestCase
         $connection = self::createMock(Connection::class);
 
         $connection->expects(self::once())
-            ->method('connect');
+            ->method('getNativeConnection');
 
         $checks = [
             [
@@ -83,7 +83,7 @@ class DoctrineTest extends TestCase
         $connection = self::createMock(Connection::class);
 
         $connection->expects(self::once())
-            ->method('connect')
+            ->method('getNativeConnection')
             ->willThrowException(self::createMock(DriverException::class))
         ;
 
@@ -162,7 +162,7 @@ class DoctrineTest extends TestCase
         ;
 
         $connection2->expects(self::once())
-            ->method('connect')
+            ->method('getNativeConnection')
         ;
 
         $checks = [
