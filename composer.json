@@ -5,7 +5,8 @@
     "type": "symfony-bundle",
     "license": "MIT",
     "require": {
-        "symfony/framework-bundle": "^6.0 || ^7.0 || ^8.0",
+        "php": ">=8.2",
+        "symfony/framework-bundle": "^6.4 || ^7.4 || ^8.1",
         "symsensor/actuator-bundle": "^1.1"
     },
     "require-dev": {
@@ -17,8 +18,8 @@
         "phpstan/phpstan-phpunit": "^1.1",
         "phpunit/phpunit": "^10.3",
         "mikey179/vfsstream": "^1.6",
-        "symfony/browser-kit": "^6.0 || ^7.0 || ^8.0",
-        "symfony/yaml": "^6.0 || ^7.0 || ^8.0"
+        "symfony/browser-kit": "^6.4 || ^7.4 || ^8.1",
+        "symfony/yaml": "^6.4 || ^7.4 || ^8.1"
     },
     "autoload": {
         "psr-4": {
