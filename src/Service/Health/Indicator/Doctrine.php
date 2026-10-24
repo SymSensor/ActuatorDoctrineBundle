@@ -56,7 +56,7 @@ class Doctrine implements HealthIndicator
                     $connection->executeQuery($checkSql);
                     $detailCheck['check_sql'] = $checkSql;
                 } else {
-                    $connection->connect();
+                    $connection->getNativeConnection();
                 }
 
                 $healthList[$name] = Health::up($detailCheck);

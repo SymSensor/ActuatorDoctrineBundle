@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode = $treeBuilder->getRootNode();
 
-        $rootNode // @phpstan-ignore-line
+        $rootNode
             ->canBeDisabled()
             ->children()
                 ->arrayNode('connections')
