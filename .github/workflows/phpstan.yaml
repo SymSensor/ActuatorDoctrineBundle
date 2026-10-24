@@ -1,8 +1,0 @@
-name: phpstan
-
-on:
-    pull_request:
-
-jobs:
-    phpstan:
-        uses: SymSensor/workflows/.github/workflows/phpstan.yaml@v1

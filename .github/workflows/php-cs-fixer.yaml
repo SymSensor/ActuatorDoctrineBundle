@@ -1,8 +1,0 @@
-name: php-cs-fixer
-
-on:
-    pull_request:
-
-jobs:
-    php-cs-fixer:
-        uses: SymSensor/workflows/.github/workflows/php-cs-fixer.yaml@v1

@@ -4,5 +4,12 @@ on:
     pull_request:
 
 jobs:
+    php-cs-fixer:
+        uses: SymSensor/workflows/.github/workflows/php-cs-fixer.yaml@v1
+
+    phpstan:
+        uses: SymSensor/workflows/.github/workflows/phpstan.yaml@v1
+
     test:
+        needs: [php-cs-fixer, phpstan]
         uses: SymSensor/workflows/.github/workflows/symfony-bundle.yaml@v1
